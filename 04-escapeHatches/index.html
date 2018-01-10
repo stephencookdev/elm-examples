@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <script src="generated-04.js"></script>
+    <script>
+      function spellCheck(word) {
+          // have a real implementation!
+          return [`kitty_kat(${word})`, `doggo(${word})`];
+      }
+
+      const app = Elm.Suggestions.fullscreen();
+
+      function subEvent(word) {
+        const suggestions = spellCheck(word);
+        app.ports.suggestions.send(suggestions);
+      }
+
+      app.ports.check.subscribe(subEvent);
+    </script>
+  </body>
+</html>
